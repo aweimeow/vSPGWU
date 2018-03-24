@@ -21,23 +21,11 @@
   become_user: root
   become_method: sudo
   vars:
-    - source_path: /root/ngic
-    - zmq_sub_ip: {{ zmq_sub_ip }}
-    - zmq_pub_ip: {{ zmq_pub_ip }}
-    - dp_comm_ip: {{ dp_comm_ip }}
-    - cp_comm_ip: {{ cp_comm_ip }}
-    - fpc_ip: {{ fpc_ip }}
-    - cp_nb_server_ip: {{ cp_nb_server_ip }}
-    - s1u_ip: {{ s1u_ip }}
-    - sgi_ip: {{ sgi_ip }}
-    - scenario: {{ scenario }}
-    - as_sgi_ip: {{ as_sgi_ip }}
-    - as_sgi_mac: {{ as_sgi_mac }}
-    - enb_s1u_ip: {{ enb_s1u_ip }}
-    - enb_s1u_mac: {{ enb_s1u_mac }}
-
+    SPGWC_PRIVATE_IP: "{{ SPGWC_PRIVATE_IP }}"
+    SPGWC_PORT: "9999"
+    SPGWU_PRIVATE_IP: "{{ SPGWU_PRIVATE_IP }}"
+    SPGWU_PORT: "8888"
+    SPGWU_PUBLIC_IP: "{{ SPGWU_PUBLIC_IP }}"
   roles:
-    - interface_config
-    - build_and_run
-
-
+    - pre-requirement
+    - spgwu-configure
