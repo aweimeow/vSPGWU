@@ -57,7 +57,7 @@ class SyncVSPGWUTenant(SyncInstanceUsingAnsible):
         vspgwu_idlist = sorted(map(lambda x: x.instance_id, vspgwu_list))
 
         spgwc_index = vspgwu_idlist.index(vspgwu_id) % len(vspgwc_list)
-        spgwc = Instance.objects.filter(id=vspgwc_idlist[spgwc_index])
+        spgwc = Instance.objects.filter(id=vspgwc_idlist[spgwc_index]).first()
 
         spgwc_network = self.get_network_id("vspgwc_network")
         spgwc_port = filter(lambda x: x.network_id == spgwc_network, spgwc.ports.all())[0]
