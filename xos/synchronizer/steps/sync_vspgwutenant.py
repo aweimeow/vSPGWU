@@ -69,7 +69,7 @@ class SyncVSPGWUTenant(SyncInstanceUsingAnsible):
         fields = {}
 
         collect_network = [
-           {'name': 'SPGWU_PUBLIC_IP', 'net_name': 'public'},
+           {'name': 'SPGWU_PUBLIC_IP', 'net_name': 'public_network'},
            {'name': 'SPGWU_PRIVATE_IP', 'net_name': 'vspgwu_network'}
         ]
 
